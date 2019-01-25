@@ -1,1 +1,7 @@
-apple run boy dog woman house blue
+apple
+run
+boy
+dog
+woman
+house
+blue
