@@ -1,7 +1,7 @@
 #an algorithm that generates random sentences from words in a file.
 import random
 #access and read the file
-with open('testfile.txt') as file:
+with open('/usr/share/dict/words') as file:
 
 #created a list object, removed line breaks, and appended words from test file
     words_list = []
