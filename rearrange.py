@@ -2,8 +2,12 @@
 import random
 import sys
 
+#the list of command line arguments the shuffle function will take
+arguments = sys.argv[1:]
+
+#This function randomly rearranges command line arguments when executed
 def word_shuffle():
-    random.shuffle(sys.argv)
-    print(str(sys.argv))
+    random.shuffle(arguments)
+    print(arguments)
 
 word_shuffle()
