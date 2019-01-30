@@ -18,7 +18,7 @@ def word_shuffle():
     #joining words from array into a sentence
     sentence = ' '.join(word_array) + '.'
     sentence = sentence.capitalize()
-    print(sentence)
+    return sentence
 
 if __name__ == '__main__':
     word_shuffle()

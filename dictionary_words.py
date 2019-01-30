@@ -13,7 +13,7 @@ def random_sentence():
         word_array = random.choices(words_list, k=5)
         sentence = ' '.join(word_array) + '.'
         sentence = sentence.capitalize()
-        print(sentence)
+        return sentence
 
 
 if __name__ == '__main__':
