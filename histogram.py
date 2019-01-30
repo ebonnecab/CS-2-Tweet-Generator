@@ -2,13 +2,15 @@
 import random
 import string
 
-# access siddharta file, store the words in a string, cleans out punctuation and line breaks, converts to lowercase
+'''access siddharta file, store the words in a string, cleans out punctuation and line breaks, converts string to lowercase,
+split returns a list of individual words'''
 def histogram():
     with open('siddhartha.txt') as file:
         text = file.readlines()
         for char in '-.,\n':
             text = [item.replace(char, ' ') for item in text]
-        text = [item.lower() for item in text]
+        text = [item.lower().split() for item in text]
+       
     print(text)       
 
 if __name__ == '__main__':
