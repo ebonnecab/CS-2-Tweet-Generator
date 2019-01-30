@@ -2,20 +2,25 @@
 import random
 import string
 
-'''access siddharta file, store the words in a string, cleans out punctuation and line breaks, converts string to lowercase,
-split returns a list of individual words'''
-def histogram():
-    with open('siddhartha.txt') as file:
-        text = file.readlines()
-        for char in '-.,\n':
-            text = [item.replace(char, ' ') for item in text]
-        text = [item.lower().split() for item in text]
+'''access file, creates a dictionary, reads file, removes line breaks, split returns a list of individual words, 
+words are added to dictionary from list and paired with how many times the word appears'''
+def histogram(file):
+    with open(file) as f:
         dict = {}
-        for word in range(len(text)-1, 0, -1):
-            dict[word] = text[word]
-       
-        return dict     
+        text = f.read()
+        words_list = [word for line in text.split('\n') for word in line.split(' ')]
+        for word in words_list:
+            if word in dict:
+                dict[word] += 1
+            else:
+                dict[word] = 1
+        return dict
+
+
+    
+
 
 if __name__ == '__main__':
-    histogram()     
+   print(histogram('siddhartha.txt'))
+ 
         
