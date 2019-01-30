@@ -25,8 +25,15 @@ def unique_words(histogram):
 
     return len(histogram)
 
-#how frequently a specific word appears in the histogram
-def frequency():
+'''
+checks histogram for word frequency by returning the key value pairs. if word is not in histogram, it returns
+an error message prompting the user to try again
+'''
+def frequency(word, histogram):
+    if word in histogram:
+        return histogram[word]
+    else:
+        return "That word is not in the histogram. Please try again"
 
     
 
@@ -34,5 +41,6 @@ def frequency():
 if __name__ == '__main__':
    print(histogram('siddhartha.txt'))
    print(unique_words(histogram('siddhartha.txt')))
+   print(frequency('she', histogram('siddhartha.txt')))
  
         
