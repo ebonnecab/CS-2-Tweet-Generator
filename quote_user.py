@@ -6,5 +6,6 @@ def import_quote():
     print(quote)
 
 
-import_quote()
+if __name__ == '__main__':
+    import_quote()
 

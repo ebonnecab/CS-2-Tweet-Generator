@@ -3,11 +3,22 @@ import random
 import sys
 
 #the list of command line arguments the shuffle function will take
-arguments = sys.argv[1:]
+word_array = sys.argv[1:]
 
-#This function randomly rearranges command line arguments when executed
+"""" this function accesses the index of the arguments, picks a random index number between 0 and the length of the array,
+converts each string in the array to lowercase, swaps the original index for a random index, and joins them into
+a "sentence". """
+
 def word_shuffle():
-    random.shuffle(arguments)
-    print(arguments)
+    for index in range(len(word_array) -1, 0, -1):
+        random_index = random.randint(0, index)
+        word_array[index] = word_array[index].lower()
+        word_array[index], word_array[random_index] = word_array[random_index], word_array[index]
 
-word_shuffle()
+    #joining words from array into a sentence
+    sentence = ' '.join(word_array) + '.'
+    sentence = sentence.capitalize()
+    print(sentence)
+
+if __name__ == '__main__':
+    word_shuffle()
