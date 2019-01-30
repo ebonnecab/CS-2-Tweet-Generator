@@ -2,7 +2,7 @@
 import random
 import string
 
-# access siddharta file, store the words in an array, appends the array to the dictionary
+# access siddharta file, store the words in a string
 def histogram():
     with open('siddhartha.txt') as file:
         text = file.readlines()
