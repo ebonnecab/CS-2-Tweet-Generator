@@ -1,6 +1,5 @@
 # uses histogram data structure to display word frequency, least/most frequent words, and how many unique words in a text
 import random
-import collections
 
 #dictionary implementation
 #TO DO: account for extraneous punctuation and numbers
@@ -37,7 +36,9 @@ def frequency(word, histogram):
 
 #histogram list implementation
 #TO DO: show how many times each word occurs as a list inside of this list
-'''accesses file, creates an empty list, reads file, appends words to list '''
+'''
+accesses file, creates an empty list, reads file, appends words to list, shows frequency of each word in list
+ '''
 def histogram_list(file):
     with open(file) as f:
         histogram = []
