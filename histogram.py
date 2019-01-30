@@ -10,8 +10,11 @@ def histogram():
         for char in '-.,\n':
             text = [item.replace(char, ' ') for item in text]
         text = [item.lower().split() for item in text]
+        dict = {}
+        for word in range(len(text)-1, 0, -1):
+            dict[word] = text[word]
        
-    print(text)       
+        return dict     
 
 if __name__ == '__main__':
     histogram()     
