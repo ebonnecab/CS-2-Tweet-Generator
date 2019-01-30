@@ -7,9 +7,9 @@ into a sentence before outputting it'''
 def random_sentence():
     with open('/usr/share/dict/words') as file:
         words_list = []
-        for words in file:
-            words = words.rstrip("\n")
-            words_list.append(words)
+        for word in file:
+            word = word.rstrip("\n")
+            words_list.append(word)
         word_array = random.choices(words_list, k=5)
         sentence = ' '.join(word_array) + '.'
         sentence = sentence.capitalize()
