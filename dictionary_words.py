@@ -9,7 +9,7 @@ def random_sentence():
     with open('/usr/share/dict/words') as file:
         words_list = []
         for word in file:
-            word = word.rstrip("\n")
+            word = word.strip()
             words_list.append(word)
         word_array = random.choices(words_list, k= int(number))
         sentence = ' '.join(word_array) + '.'
