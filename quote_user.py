@@ -9,7 +9,3 @@ def import_quote():
 if __name__ == '__main__':
     quote = import_quote()
     print(quote)
-
-# a function that takes a histogram and returns a single random word
-def random_word(histogram):
-    
