@@ -1,7 +1,7 @@
 import random
 import histogram 
 
-#TO DO: make importing the histogram it's own function
+#TO DO: make importing the histogram it's own function and refactor/optimize code
 # imports histogram for use in random_word function
 # def import_text(histo, file):
 #     with open(file) as f:
@@ -10,7 +10,8 @@ import histogram
 
 ''' this function generates a random word from a histogram by creating an empty array,
 accessing the histogram via the histogram function, iterating through the histogram,
-appending the words to the empty array, generating a random index, and returning that index
+appending the words to the empty array, generating a random index, returning that index,
+calculates the probability of that word being picked based upon frequence and total unique words
 '''
 def random_word(file):
     words_list = []
