@@ -3,7 +3,8 @@
 import random
 import sys
 
-number = sys.argv[:1]
+# number = sys.argv[:1]
+number = input('Enter number of words: ')
 ''' This function takes user input for number of words, accesses the word file, creates a list object, removes line breaks, 
 and appends the words from the file to the list, takes five words from the list object, stores them in an array, 
 and joins the array into a sentence before outputting it'''
