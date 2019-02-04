@@ -13,8 +13,10 @@ def random_sentence(num):
     with open('/usr/share/dict/words') as file:
             text = file.read().split()
             for word in text:
-                # rand_number = random.randint(0, len(text)-1)
-                # word = text[rand_number]
+                # words_list.append(word)
+                # rand_num = random.randint(0, len(text)-1)
+                # rand_word = words_list[rand_num]
+            
                 # words_list.append(word)
                 word = word.strip()
                 words_list.append(word)  

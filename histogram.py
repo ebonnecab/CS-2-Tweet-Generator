@@ -63,9 +63,9 @@ def histogram_tuples(file):
 
 
 if __name__ == '__main__':
-    print(histogram('siddhartha.txt'))
+    histogram('siddhartha.txt')
     # print(histogram_list('siddhartha.txt'))
-    print(unique_words(histogram('siddhartha.txt')))
-    print(frequency('he', histogram('siddhartha.txt')))
+    unique_words(histogram('siddhartha.txt'))
+    frequency('he', histogram('siddhartha.txt'))
  
         
