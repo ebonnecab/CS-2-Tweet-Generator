@@ -34,6 +34,18 @@ def frequency(word, histogram):
     else:
         return "That word is not in the histogram. Please try again"
 
+'''
+shows results from histogram function in a new file by accessing text file, 
+opening a new file and writing the key value pairs from the histogram into the new file
+'''
+#TO DO: figure out why it also changes original text file
+
+def histo_file(file, histogram):
+    with open(file, 'w+') as f:
+        f.write('\n Histogram\n')
+        for key, val in histogram.items():
+            f.write('{}: {}\n'.format(key, val))
+
 #histogram list implementation
 #TO DO: show how many times each word occurs as a list inside of this list
 '''
@@ -67,5 +79,6 @@ if __name__ == '__main__':
     # print(histogram_list('siddhartha.txt'))
     unique_words(histogram('siddhartha.txt'))
     frequency('he', histogram('siddhartha.txt'))
+    histo_file('histo.txt', histogram('siddhartha.txt'))
  
         
