@@ -17,16 +17,17 @@ def random_word(file):
     histo = histogram.histogram(file)
     for word in histo:
         words_list.append(word)
-        rand_word = random.randint(1, len(histo)-1)
-    return words_list[rand_word]
-
+        rand_num = random.randint(1, len(histo)-1)
+    return words_list[rand_num]
 # from the word sample, determine the probability of the word randomly being chosen based upon its frequency
 def word_probability(file):
     words_list = []
     histo = histogram.histogram(file)
     for word in histo:
         words_list.append(word)
-    rand_word = words_list.random_word(file)
+    rand_num = random.randint(1, len(histo)-1)
+    rand_word = words_list[rand_num]
+        
     word_freq = int(histogram.frequency(rand_word, histo))
     unique_words = int(histogram.unique_words(histo))
     probability = float(word_freq/unique_words)
@@ -34,7 +35,7 @@ def word_probability(file):
 
 if __name__ == '__main__':
     test1 = random_word('siddhartha.txt')
-    test2 = word_probability('siddartha.txt')
-    print(test1)
+    test2 = word_probability('siddhartha.txt')
+    print(test1, test2)
 
     
