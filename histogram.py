@@ -53,13 +53,18 @@ accesses file, creates an empty list, reads file, appends words to list, shows f
  '''
 def histogram_list(file):
     with open(file) as f:
-        histogram = []
         text = f.read()
-        words_list = [word for line in text.split('\n') for word in line.split(' ')]
+        words_list = [word for line in text.split(
+            '\n') for word in line.split(' ')]
+        word_array = []
         for word in words_list:
-            histogram.append(word)
-
-        return histogram
+            for inner_list in word_array:
+                if word == inner_list[0]:
+                    inner_list[1] += 1
+                else:
+                    word_array.append([word, 1])
+        return word_array
+                
 
 #histogram tuples implementation
 #TO DO: add word and word frequency to tuples in histogram list
@@ -73,8 +78,8 @@ def histogram_tuples(file):
 
 
 if __name__ == '__main__':
-    histogram('siddhartha.txt')
-    # print(histogram_list('siddhartha.txt'))
+    # print(histogram('siddhartha.txt'))
+    print(histogram_list('siddhartha.txt'))
     unique_words(histogram('siddhartha.txt'))
     frequency('he', histogram('siddhartha.txt'))
     # histo_file('histo.txt', histogram('siddhartha.txt')

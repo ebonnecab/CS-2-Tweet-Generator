@@ -1,18 +1,23 @@
 import random
-import histogram 
+import histogram
 
-#TO DO: make importing the histogram it's own function and refactor/optimize code
-# imports histogram for use in random_word function
-# def import_text(histo, file):
-#     with open(file) as f:
-#         histo = histogram.histogram(f)
-#         return histo
-
-''' this function generates a random word from a histogram by creating an empty array,
-accessing the histogram via the histogram function, iterating through the histogram,
-appending the words to the empty array, generating a random index, returning that index,
-calculates the probability of that word being picked based upon frequence and total unique words
+''' 
+This function takes a list of words, splits them into their own string separated by whitespace,
+creates a word count based upon the length of the list, creates a dictionary, iterates through the list and adds the word and word count to the dictionary,
+returns the probability of each word being chosen
 '''
+def word_probability(words_list):
+    words_list = words_list.split(" ")
+    word_count = len(words_list)
+    dict = {}
+
+    for word in words_list:
+       dict[word] = words_list.count(word)
+    
+    for key, value in dict.items():
+        print("{} : {}".format(key, value/word_count))
+
+# random word function
 def random_word(file):
     words_list = []
     histo = histogram.histogram(file)
@@ -20,23 +25,8 @@ def random_word(file):
         words_list.append(word)
         rand_num = random.randint(1, len(histo)-1)
     return words_list[rand_num]
-# from the word sample, determine the probability of the word randomly being chosen based upon its frequency
-def word_probability(file):
-    words_list = []
-    histo = histogram.histogram(file)
-    for word in histo:
-        words_list.append(word)
-    rand_num = random.randint(1, len(histo)-1)
-    rand_word = words_list[rand_num]
-        
-    word_freq = int(histogram.frequency(rand_word, histo))
-    unique_words = int(histogram.unique_words(histo))
-    probability = float(word_freq/unique_words)
-    return probability
 
-if __name__ == '__main__':
-    test1 = random_word('siddhartha.txt')
-    test2 = word_probability('siddhartha.txt')
-    print(test1, test2)
-
+if __name__ == '__main__':   
+    words = "one fish two fish red fish blue fish"
+    word_probability(words)
     
