@@ -19,14 +19,16 @@ def word_probability(words_list):
 
 # random word function
 def random_word(file):
-    words_list = []
-    histo = histogram.histogram(file)
-    for word in histo:
-        words_list.append(word)
-        rand_num = random.randint(1, len(histo)-1)
-    return words_list[rand_num]
+    with open(file) as f:
+        words_list = []
+        for word in f:
+            word = word.strip()
+            words_list.append(word)
+        rand_num = random.randint(0, len(words_list)-1)
+        return words_list[rand_num]
 
 if __name__ == '__main__':   
     words = "one fish two fish red fish blue fish"
     word_probability(words)
+    print(random_word('testfile.txt'))
     
