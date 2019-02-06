@@ -1,34 +1,48 @@
 import random
-import histogram
+#TO DO: add comments
 
-''' 
-This function takes a list of words, splits them into their own string separated by whitespace,
-creates a word count based upon the length of the list, creates a dictionary, iterates through the list and adds the word and word count to the dictionary,
-returns the probability of each word being chosen
-'''
-def word_probability(words_list):
-    words_list = words_list.split(" ")
+def sample():
+    sample_sentence = "one fish two fish red fish blue fish"
+    words_list = sample_sentence.split()
+    dict = histogram(words_list)
+
     word_count = len(words_list)
-    dict = {}
+    chance = 0
+    random_num = random.random()
+    for key, val in dict.items():
+        print("{} = {}".format(key,val/word_count))
 
-    for word in words_list:
-       dict[word] = words_list.count(word)
+    #returns random word    
+    for key in dict:
+        chance += dict[key]/word_count
+        if chance > random_num:
+            return key
+
+  
+def histogram(word_array):
+    histogram = {}
     
-    for key, value in dict.items():
-        print("{} : {}".format(key, value/word_count))
+    for word in word_array:
+        if word not in histogram:
+            histogram[word] = 1
+        else:
+            histogram[word] += 1
 
-# random word function
-def random_word(file):
-    with open(file) as f:
-        words_list = []
-        for word in f:
-            word = word.strip()
-            words_list.append(word)
-        rand_num = random.randint(0, len(words_list)-1)
-        return words_list[rand_num]
+    return histogram
+
+#tests accuracy of probability results
+def word_probability():
+    dict = {'one': 0, 'fish': 0, 'two': 0, 'red': 0, 'blue': 0}
+    for i in range(0, 50):
+        dict[sample()] +=1
+    return dict
+    
+
 
 if __name__ == '__main__':   
-    words = "one fish two fish red fish blue fish"
-    word_probability(words)
-    print(random_word('testfile.txt'))
+    test = sample()
+    print(test)
+    test2 = word_probability()
+    print(test2)
+
     
