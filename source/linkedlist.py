@@ -7,6 +7,7 @@ class Node(object):
         """Initialize this node with the given data."""
         self.data = data
         self.next = None
+        self.prev = None
 
     def __repr__(self):
         """Return a string representation of this node."""
@@ -71,14 +72,20 @@ class LinkedList(object):
         # checking if list is empty, if so make new node the head 
         if self.head is None:
             self.head = new_node
+            self.tail = new_node
             return
         else:
-            last_node = self.head
-        # if list is not empty traverse to last node in list
-            while (last_node.next):
-                last_node = last_node.next
-        # change next of last node
-            last_node.next = new_node
+            current_node = self.head
+        # if list is not empty continue to traverse
+            while current_node.next is not None:
+                current_node = current_node.next
+        # if tail, add new node
+            current_node.next = new_node
+        # set previous pointer to current node
+            new_node.prev = current_node
+        # sets new tail to equal new node
+            self.tail = new_node
+            
 
 
     def prepend(self, item):
