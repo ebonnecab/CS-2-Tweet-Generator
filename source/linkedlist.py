@@ -101,8 +101,10 @@ class LinkedList(object):
             return
         else:
             current_node = self.head
+            #set head and prev pointer to new node
             self.head = new_node
             current_node.prev = new_node
+            #next pointer points you back to head
             new_node.next = current_node
         
 
@@ -112,6 +114,15 @@ class LinkedList(object):
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes to find item where quality(item) is True
+        current_node = self.head
+        # current_node = self.tail
+        index = 1
+        while current_node is not None:
+            if quality(current_node.data):
+                return current_node.data
+            else:
+                current_node = current_node.next
+        return None
         # TODO: Check if node's data satisfies given quality function
 
     def delete(self, item):
