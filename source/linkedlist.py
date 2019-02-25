@@ -113,25 +113,42 @@ class LinkedList(object):
         """Return an item from this linked list satisfying the given quality.
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
-        # TODO: Loop through all nodes to find item where quality(item) is True
         current_node = self.head
        
-        
+        # loops through nodes to find if quality(item) is True
+        #Checks if node's data satisfies given quality function
         while current_node is not None:
             if quality(current_node.data):
                 return current_node.data
             else:
                 current_node = current_node.next
         return None
-        # TODO: Check if node's data satisfies given quality function
-
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
-        # TODO: Loop through all nodes to find one whose data matches given item
-        
+        extra_node = Node(item)
+        current_node = self.head
+        prev_node = None
 
+        while current_node is not None:
+            if current_node.data == item:
+                if prev_node is not None:
+                    if current_node == self.tail:
+                        self.tail = prev_node
+                    prev_node.next = current_node.next
+                else:
+                    if current_node == self.tail:
+                        self.tail == prev_node
+                    self.head = current_node.next
+                return True
+            
+            prev_node = current_node
+            current_node = current_node.next
+
+        raise ValueError('Item not found: {}'.format(item))
+
+        # TODO: Loop through all nodes to find one whose data matches given item
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
         # Hint: raise ValueError('Item not found: {}'.format(item))
