@@ -91,7 +91,7 @@ class LinkedList(object):
 
 
     def prepend(self, item):
-        """Insert the given item at the head of this linked list.
+        # """Insert the given item at the head of this linked list.
         #Best and worse case runtime is O(1) because we only change the first node
         #Create new node to hold given item
         new_node = Node(item) # O(1)  time to assign new variable
@@ -132,23 +132,24 @@ class LinkedList(object):
         extra_node = Node(item)
         current_node = self.head
         prev_node = None
+        found = False
 
         while current_node is not None:
             if current_node.data == item:
+                found = True
                 if prev_node is not None:
-                    if current_node == self.tail:
-                        self.tail = prev_node
                     prev_node.next = current_node.next
                 else:
-                    if current_node == self.tail:
-                        self.tail == prev_node
                     self.head = current_node.next
-                return True
+                
+                if current_node.next == None:
+                    self.tail = prev_node
+                
             
             prev_node = current_node
             current_node = current_node.next
-
-        raise ValueError('Item not found: {}'.format(item))
+        if not found:
+            raise ValueError('Item not found: {}'.format(item))
 
         # TODO: Loop through all nodes to find one whose data matches given item
         # TODO: Update previous node to skip around node with matching data
