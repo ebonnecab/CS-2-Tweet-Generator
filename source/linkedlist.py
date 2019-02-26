@@ -113,17 +113,18 @@ class LinkedList(object):
     def find(self, quality):
         # Return an item from this linked list satisfying the given quality.
         # Best case running time: O(1) if item is near the head of the list.
-        # Worst case running time: O(n) if item is near the tail of the list or not in the list and we have to loop till the end.
-        current_node = self.head
+        # Worst case running time: O(n) if item is near the tail of the list 
+        # or not in the list and we have to loop till the end.
+        current_node = self.head #constant time to assign variable
        
         # loops through nodes to find if quality(item) is True
         #Checks if node's data satisfies given quality function
-        while current_node is not None:
-            if quality(current_node.data):
-                return current_node.data
+        while current_node is not None: #up to n iterations
+            if quality(current_node.data): #constant time to call function
+                return current_node.data #constant time to return data
             else:
-                current_node = current_node.next
-        return None
+                current_node = current_node.next # constant time to reassign variable
+        return None # constant time to return None
     def delete(self, item):
         # Delete the given item from this linked list, or raise ValueError.
         # TODO: Best case running time: O(???) Why and under what conditions?
