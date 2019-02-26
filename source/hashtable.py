@@ -78,18 +78,32 @@ class HashTable(object):
         """Return the value associated with the given key, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Find bucket where given key belongs
+        index = self._bucket_index
+        bucket = self.buckets[index(key)]
         # TODO: Check if key-value entry exists in bucket
+        entry_found = bucket.find(lambda key_val: key_val[0] == key)
         # TODO: If found, return value associated with given key
+        if entry_found is not None:
+            return entry_found[1]
         # TODO: Otherwise, raise error to tell user get failed
-        # Hint: raise KeyError('Key not found: {}'.format(key))
+        else:
+            raise KeyError('Key not found: {}'.format(key))
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Find bucket where given key belongs
-        # TODO: Check if key-value entry exists in bucket
-        # TODO: If found, update value associated with given key
-        # TODO: Otherwise, insert given key-value entry into bucket
+        # Find bucket where given key belongs
+        index = self._bucket_index
+        bucket = self.buckets[index(key)]
+        # Check if key-value entry exists in bucket
+        entry_found = bucket.find(lambda key_val: key_val[0] == key )
+        # If found, update value associated with given key
+        if entry_found is not None:
+            bucket[bucket.index(entry_found)] = (key,value)
+            # bucket.replace(entry_found, (key, value))
+        #Otherwise, insert given key-value entry into bucket
+        else:
+            bucket.append((key, value))
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
