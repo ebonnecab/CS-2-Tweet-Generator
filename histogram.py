@@ -11,13 +11,13 @@ def histogram(file):
     with open(file) as f:
         dict = {}
         text = f.read()
-        words_list = [word for line in text.split('\n') for word in line.split(' ')]
-        for word in words_list:
-            if word in dict:
-                dict[word] += 1
-            else:
-                dict[word] = 1
-        return dict
+    words_list = [word for line in text.split('\n') for word in line.split(' ')]
+    for word in words_list:
+        if word in dict:
+            dict[word] += 1
+        else:
+            dict[word] = 1
+    return dict
 
 #takes histogram data and returns number of unique words
 def unique_words(histogram):

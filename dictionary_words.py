@@ -4,13 +4,12 @@ import random
 import sys
 
 # number = sys.argv[:1]
-number = input('Enter number of words: ')
-''' This function takes user input for number of words, accesses the word file, creates a list object, removes line breaks, 
-and appends the words from the file to the list, takes five words from the list object, stores them in an array, 
+number = input('Enter number of words: ') #takes user input
+'''  removes line breaks, and appends the words from the file to the list, takes five words from the list object, stores them in an array, 
 and joins the array into a sentence before outputting it'''
 def random_sentence():
-    words_list = []
-    with open('/usr/share/dict/words') as file:
+    words_list = [] #creates list object
+    with open('/usr/share/dict/words') as file: #accessing word file
             text = file.read().split()
             for word in text:
                 # words_list.append(word)
