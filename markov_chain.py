@@ -1,10 +1,10 @@
 def markov_chain(sentence):
-    markov_dict = {}
-    word_array = sentence.split()
+    markov_dict = {} #creates empty dictionary
+    word_array = sentence.split() #splits sentence into separate strings and stores them in an array
 
-    for word in word_array:
-        if word not in markov_dict.keys():
-            markov_dict[word] = {}
+    for word in word_array: #loops through word in array
+        if word not in markov_dict.keys(): #checks if that word is in dictionary
+            markov_dict[word] = {} #adds it to dictionary
             
 
     index = 0

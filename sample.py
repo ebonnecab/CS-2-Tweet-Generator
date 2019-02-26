@@ -1,8 +1,9 @@
 import random
+import sys
 #TO DO: add comments
 
 def sample():
-    sample_sentence = "one fish two fish red fish blue fish"
+    sample_sentence = sys.argv
     words_list = sample_sentence.split()
     dict = histogram(words_list)
 

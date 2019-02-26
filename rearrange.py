@@ -5,15 +5,11 @@ import sys
 #the list of command line arguments the shuffle function will take
 word_array = sys.argv[1:]
 
-"""" this function accesses the index of the arguments, picks a random index number between 0 and the length of the array,
-converts each string in the array to lowercase, swaps the original index for a random index, and joins them into
-a "sentence". """
-
 def word_shuffle():
-    for index in range(len(word_array) -1, 0, -1):
-        random_index = random.randint(0, index)
-        word_array[index] = word_array[index].lower()
-        word_array[index], word_array[random_index] = word_array[random_index], word_array[index]
+    for index in range(len(word_array) -1, 0, -1): #this function accesses the index of the arguments
+        random_index = random.randint(0, index) #picks a random index number between 0 and the length of the array
+        word_array[index] = word_array[index].lower() #converts each string in the array to lowercase
+        word_array[index], word_array[random_index] = word_array[random_index], word_array[index] # swaps the original index for a random index
 
     #joining words from array into a sentence
     sentence = ' '.join(word_array) + '.'
