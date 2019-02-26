@@ -51,25 +51,25 @@ class LinkedList(object):
 
     def is_empty(self):
         """Return a boolean indicating whether this linked list is empty."""
+        # O(1) only needs to check head for whether the list is empty or not
         return self.head is None
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        Running time: O(n) because we need to loop through all the nodes to get each item and find the length of the list.
+        Running time: Best and worst case are O(n) because we need to loop through all the nodes to get each item and find the length of the list.
         """
-        node = self.head
+        node = self.head # O(1) time to assign new variable
         count = 0 
         #Loops through all nodes and count one for each
-        while node is not None:
+        while node is not None: #always n iterations
             count += 1
-            node = node.next
-        return count
+            node = node.next # O(1) time to reassign variable
+        return count #  O(1) time to return list
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        *TO DO: ask for clarification*
-        Running time: O(n) because we need to loop through all the nodes to get to end of list"""
+        Running time: O(n) because we need to loop through all the nodes to get to end of list if you start at the head and loop"""
         # TODO: Create new node to hold given item
-        new_node = Node(item)
+        new_node = Node(item) # O(1) because 
         # checking if list is empty, if so make new node the head and tail
         if self.head is None:
             self.head = new_node
@@ -78,6 +78,7 @@ class LinkedList(object):
         else:
             current_node = self.head
         # if list is not empty continue to traverse
+        #TO DO: start at tail instead of looping through whole list; makes the code O(1)
             while current_node.next is not None:
                 current_node = current_node.next
         # if tail, add new node
@@ -91,11 +92,11 @@ class LinkedList(object):
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        #Best and worse case runtime is O(1) because we only change the first node
         #Create new node to hold given item
-        new_node = Node(item)
+        new_node = Node(item) # O(1)  time to assign new variable
         #Check if list is empty, if so make new node head and tail
-        if self.head is None:
+        if self.head is None: # O(1) because it only checks if head is empty or not
             self.head = new_node
             self.tail = new_node
             return
@@ -110,9 +111,9 @@ class LinkedList(object):
 
 
     def find(self, quality):
-        """Return an item from this linked list satisfying the given quality.
-        TODO: Best case running time: O(???) Why and under what conditions?
-        TODO: Worst case running time: O(???) Why and under what conditions?"""
+        # Return an item from this linked list satisfying the given quality.
+        # Best case running time: O(1) if item is near the head of the list.
+        # Worst case running time: O(n) if item is near the tail of the list or not in the list and we have to loop till the end.
         current_node = self.head
        
         # loops through nodes to find if quality(item) is True
@@ -124,9 +125,9 @@ class LinkedList(object):
                 current_node = current_node.next
         return None
     def delete(self, item):
-        """Delete the given item from this linked list, or raise ValueError.
-        TODO: Best case running time: O(???) Why and under what conditions?
-        TODO: Worst case running time: O(???) Why and under what conditions?"""
+        # Delete the given item from this linked list, or raise ValueError.
+        # TODO: Best case running time: O(???) Why and under what conditions?
+        # TODO: Worst case running time: O(???) Why and under what conditions?"""
         extra_node = Node(item)
         current_node = self.head
         prev_node = None
