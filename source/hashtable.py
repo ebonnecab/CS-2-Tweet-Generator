@@ -99,8 +99,7 @@ class HashTable(object):
         entry_found = bucket.find(lambda key_val: key_val[0] == key )
         # If found, update value associated with given key
         if entry_found is not None:
-            bucket[bucket.index(entry_found)] = (key,value)
-            # bucket.replace(entry_found, (key, value))
+            entry_found = (key, value)
         #Otherwise, insert given key-value entry into bucket
         else:
             bucket.append((key, value))
