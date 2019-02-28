@@ -78,9 +78,11 @@ class LinkedList(object):
         else:
             current_node = self.head
         # if list is not empty continue to traverse
+
         #TO DO: start at tail instead of looping through whole list; makes the code O(1)
             while current_node.next is not None:
                 current_node = current_node.next
+                
         # if tail, add new node
             current_node.next = new_node
         # set previous pointer to current node
