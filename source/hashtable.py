@@ -98,15 +98,19 @@ class HashTable(object):
     def set(self, key, value):
         #Insert or update the given key with its associated value.
         #Running time: O(1) because you only run the function once
+
         # Find bucket where given key belongs
         index = self._bucket_index # O(1) to assign variable(s)
         bucket = self.buckets[index(key)]
+
         # Check if key-value entry exists in bucket
         entry_found = bucket.find(lambda key_val: key_val[0] == key )
+
         # If found, update value associated with given key
         if entry_found: #constant time
             bucket.delete(entry_found)
             # entry_found = (key, value)
+            
         #Otherwise, insert given key-value entry into bucket
         else:
             bucket.append((key, value))
