@@ -83,10 +83,13 @@ class HashTable(object):
         #Find bucket where given key belongs
         index = self._bucket_index
         bucket = self.buckets[index(key)]
+
         #Check if key-value entry exists in bucket
-        entry_found = bucket.find(lambda key_val: key_val[0] == key)
+        key_matcher = lambda key_val: key_val[0] == key
+        entry_found = bucket.find(key_matcher)
+
         #If found, return value associated with given key
-        if entry_found is not None:
+        if entry_found:
             return entry_found[1]
         #Otherwise, raise error to tell user get failed
         else:
@@ -101,8 +104,9 @@ class HashTable(object):
         # Check if key-value entry exists in bucket
         entry_found = bucket.find(lambda key_val: key_val[0] == key )
         # If found, update value associated with given key
-        if entry_found is not None: #constant time
-            entry_found = (key, value)
+        if entry_found: #constant time
+            bucket.delete(entry_found)
+            # entry_found = (key, value)
         #Otherwise, insert given key-value entry into bucket
         else:
             bucket.append((key, value))
@@ -114,7 +118,8 @@ class HashTable(object):
         index = self._bucket_index #constant time to assign variable(s)
         bucket = self.buckets[index(key)]
         #Check if key-value entry exists in bucket
-        entry_found = bucket.find(lambda key_val: key_val[0] == key )
+        key_matcher = lambda key_val: key_val[0] == key
+        entry_found = bucket.find(key_matcher)
         #If found, delete entry associated with given key
         if entry_found is not None: #constant time to check for entry found
             bucket.delete(entry_found)
