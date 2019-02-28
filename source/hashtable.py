@@ -36,7 +36,7 @@ class HashTable(object):
 
     def values(self):
         #Return a list of all values in this hash table.
-        # Running time: O(n) because we are looping through all the buckets and their items
+        # Running time: O(l) because we are looping through all the buckets and their items
         all_values = []
         for bucket in self.buckets:
             for key, value in bucket.items():
@@ -46,7 +46,7 @@ class HashTable(object):
 
     def items(self):
         #Return a list of all items (key-value pairs) in this hash table.
-        #Running time: O(n) because you loop through each bucket 
+        #Running time: O(l) because you loop through each bucket 
         # Collect all pairs of key-value entries in each bucket
         all_items = []
         for bucket in self.buckets:
@@ -55,7 +55,7 @@ class HashTable(object):
 
     def length(self):
         #Return the number of key-value entries by traversing its buckets.
-        #Running time: O(n) because you loop through all of the buckets
+        #Running time: O(l) because you loop through all of the buckets
         length = 0
         #Loop through all buckets
         for bucket in self.buckets:
@@ -67,7 +67,7 @@ class HashTable(object):
 
     def contains(self, key):
         #Return True if this hash table contains the given key, or False.
-        #Running time: O(n) because you loop through all the buckets
+        #Running time: O(l) because you loop through all the buckets
 
         #Find bucket where given key belongs
         for bucket in self.buckets:
@@ -104,12 +104,12 @@ class HashTable(object):
         bucket = self.buckets[index(key)] # constant time to index array
 
         # Check if key-value entry exists in bucket
-        entry_found = bucket.find(lambda key_val: key_val[0] == key )
+        entry_found = bucket.find(lambda key_val: key_val[0] == key ) #O(l)
 
         # If found, update value associated with given key
         if entry_found is not None: #constant time
-            bucket.delete(entry_found)
-            
+            bucket.delete(entry_found) #get rid of old key,val pair
+
         #Otherwise, insert given key-value entry into bucket
         entry_found = (key, value)
         bucket.append((key, value))
