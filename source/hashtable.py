@@ -109,11 +109,11 @@ class HashTable(object):
         # If found, update value associated with given key
         if entry_found is not None: #constant time
             bucket.delete(entry_found)
-            # entry_found = (key, value)
-
+            
         #Otherwise, insert given key-value entry into bucket
-        else:
-            bucket.append((key, value))
+        entry_found = (key, value)
+        bucket.append((key, value))
+
 
     def delete(self, key):
         #Delete the given key from this hash table, or raise KeyError.
