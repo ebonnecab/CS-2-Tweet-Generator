@@ -1,13 +1,5 @@
 from histogram import histogram
 
-# def words_list(file):
-#     with open(file) as f: #access file
-#         dict = {} #creates a dictionary
-#         text = f.read() #reads file
-#     word_array = [word for line in text.split('\n') for word in line.split(' ')] #removes line breaks and whitespace,returns a list of individual words
-    
-#     return word_array
-
 def markov_chain(file):
     with open(file) as f: #access file
         markov_dict = {} #creates empty dictionary
