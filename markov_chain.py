@@ -1,22 +1,33 @@
-def markov_chain(sentence):
-    markov_dict = {} #creates empty dictionary
-    word_array = sentence.split() #splits sentence into separate strings and stores them in an array
+from histogram import histogram
 
-    for word in word_array: #loops through word in array
-        if word not in markov_dict.keys(): #checks if that word is in dictionary
-            markov_dict[word] = {} #adds it to dictionary
-            
+# def words_list(file):
+#     with open(file) as f: #access file
+#         dict = {} #creates a dictionary
+#         text = f.read() #reads file
+#     word_array = [word for line in text.split('\n') for word in line.split(' ')] #removes line breaks and whitespace,returns a list of individual words
+    
+#     return word_array
+
+def markov_chain(file):
+    with open(file) as f: #access file
+        markov_dict = {} #creates empty dictionary
+        text = f.read() #reads file
+    word_array = [word for line in text.split('\n') for word in line.split(' ')] #removes line breaks and whitespace,returns a list of individual words
+
+    for word in word_array:
+        if word not in markov_dict:
+            markov_dict[word] = {}
 
     index = 0
-    for word in word_array:
-        if index + 1 < len(word_array):
-            next_word = word_array[index+1]
-            if next_word in markov_dict[word].keys():
-                markov_dict[word][next_word]+= 1
-            else:
-                markov_dict[word][next_word] = 1
-            index += 1
+    if index + 1 < len(file):
+        next_word = file[index+1]
+        if next_word in markov_dict[word].keys():
+            markov_dict[word][next_word] += 1
+        else:
+            markov_dict[word][next_word] = 1
+        index +=1
+    
     return markov_dict
 
 if __name__ == '__main__':
-    print(markov_chain("one fish two fish red fish blue fish"))
+    print(markov_chain('siddhartha.txt'))

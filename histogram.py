@@ -4,16 +4,16 @@ import random
 #dictionary implementation
 #TO DO: account for extraneous punctuation and numbers
 '''
-access file, creates a dictionary, reads file, removes line breaks, split returns a list of individual words, 
+, 
 words are added to dictionary from list and paired with how many times the word appears
 '''
-def histogram(file):
-    with open(file) as f:
-        dict = {}
-        text = f.read()
-    words_list = [word for line in text.split('\n') for word in line.split(' ')]
-    for word in words_list:
-        if word in dict:
+def histogram(file): 
+    with open(file) as f: #access file
+        dict = {} #creates a dictionary
+        text = f.read() #reads file
+    words_list = [word for line in text.split('\n') for word in line.split(' ')] #removes line breaks, split returns a list of individual words
+    for word in words_list: #words and word frequency are added to dictionary from list
+        if word in dict: 
             dict[word] += 1
         else:
             dict[word] = 1
@@ -71,8 +71,8 @@ def histogram_tuples(file):
 
 
 if __name__ == '__main__':
-    # print(histogram('siddhartha.txt'))
-    print(histogram_list())
+    print(histogram('siddhartha.txt'))
+    # print(histogram_list())
     unique_words(histogram('siddhartha.txt'))
     frequency('he', histogram('siddhartha.txt'))
     # histo_file('histo.txt', histogram('siddhartha.txt')

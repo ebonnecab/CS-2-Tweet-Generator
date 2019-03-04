@@ -78,7 +78,7 @@ class HashTable(object):
         return False
     def get(self, key):
         #Return the value associated with the given key, or raise KeyError.
-        #Running time: O(1) because you only run the function one time to find the right bucket
+        #Running time: O(l) because it depends on the length of hash table
 
         #Find bucket where given key belongs
         index = self._bucket_index #constant time to calculate index
@@ -97,7 +97,7 @@ class HashTable(object):
 
     def set(self, key, value):
         #Insert or update the given key with its associated value.
-        #Running time: O(1) because you only run the function once
+        #Running time: best case is O(1) or worst case is O(l)
 
         # Find bucket where given key belongs
         index = self._bucket_index # O(1) to calculate index
@@ -117,7 +117,7 @@ class HashTable(object):
 
     def delete(self, key):
         #Delete the given key from this hash table, or raise KeyError.
-        #Running time: O(1) because you run the function once
+        #Running time: O(??) because ??
 
         # Find bucket where given key belongs
         index = self._bucket_index #constant time to assign variable(s)
