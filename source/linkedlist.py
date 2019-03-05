@@ -38,9 +38,12 @@ class LinkedList(object):
         """Return a list (dynamic array) of all items in this linked list.
         Best and worst case running time: O(n) for n items in the list (length)
         because we always need to loop through all n nodes to get each item."""
+
         items = []  # O(1) time to create empty list
+
         # Start at head node
         node = self.head  # O(1) time to assign new variable
+
         # Loop until node is None, which is one node too far past tail
         while node is not None:  # Always n iterations because no early return
             items.append(node.data)  # O(1) time (on average) to append to list
@@ -60,16 +63,20 @@ class LinkedList(object):
         """
         node = self.head # O(1) time to assign new variable
         count = 0 
+
         #Loops through all nodes and count one for each
         while node is not None: #always n iterations
             count += 1
             node = node.next # O(1) time to reassign variable
         return count #  O(1) time to return list
+
     def append(self, item):
         """Insert the given item at the tail of this linked list.
         Running time: O(n) because we need to loop through all the nodes to get to end of list if you start at the head and loop"""
+
         # TODO: Create new node to hold given item
         new_node = Node(item) # O(1) because 
+
         # checking if list is empty, if so make new node the head and tail
         if self.head is None:
             self.head = new_node
@@ -127,17 +134,21 @@ class LinkedList(object):
             else:
                 current_node = current_node.next # constant time to reassign variable
         return None # constant time to return None
+
     def delete(self, item):
         # Delete the given item from this linked list, or raise ValueError.
         # Best and worst run times are O(n) because you have to loop through the nodes
+        
         extra_node = Node(item) #runtime is 0(1) to assign new variable
         current_node = self.head
         prev_node = None
         found = False
+
     #Loop through all nodes to find one whose data matches given item
         while current_node is not None: #up to n iterations
             if current_node.data == item: # O(1) time to call function
                 found = True
+
     #Update previous node to skip around node with matching data
                 if prev_node is not None:
                     prev_node.next = current_node.next

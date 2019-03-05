@@ -18,7 +18,7 @@ def markov_chain(file):
         else:
             markov_dict[word][next_word] = 1
         index +=1
-    
+    print(index)
     return markov_dict
 
 if __name__ == '__main__':
