@@ -59,13 +59,13 @@ class HashTable(object):
 
     def length(self):
     #Return the number of key-value entries by traversing its buckets.
-    #Running time: O(l) because you loop through all of the buckets
+    #Running time: O(b * l) b/c for each bucket you implement length
         
         length = 0
 
         #Loop through all buckets
-        for bucket in self.buckets:
-            length += bucket.length()
+        for bucket in self.buckets: #b iterations of a loop
+            length += bucket.length()#O(l)
             
         return length
         
