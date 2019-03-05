@@ -65,9 +65,8 @@ class HashTable(object):
 
         #Loop through all buckets
         for bucket in self.buckets:
-         #Count number of key-value entries in each bucket
-            for key, value in bucket.items():
-                length +=1
+            length += bucket.length()
+            
         return length
         
     def contains(self, key):
