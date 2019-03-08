@@ -61,11 +61,29 @@ def second_order(file):
             markov_dict[tuple].add_count(next_next_word)
     return markov_dict
 
+def second_order_sentence(markov_dict):
+    tuple = list(markov_dict.keys())[0]
+    next_next_word = start_word(markov_dict, tuple)
+    sample_sentence = tuple[0] + tuple[1] + next_next_word
+    prev_word = (tuple[1], next_next_word)
+
+    length = 10
+    for word in range(0, random.randint(1, length)):
+        new_word = start_word(markov_dict, prev_word)
+        prev_word = (prev_word[1], new_word)
+        sample_sentence += new_word
+        if prev_word not in markov_dict:
+            return sample_sentence
+    
+    return sample_sentence
+
+
 
     
 
 if __name__ == '__main__':
     # chain = markov_chain('siddhartha.txt')
     # print(generate_sentences(chain))
-    print(second_order('siddhartha.txt'))
+    second_chain = second_order('siddhartha.txt')
+    print(second_order_sentence(second_chain))
     
