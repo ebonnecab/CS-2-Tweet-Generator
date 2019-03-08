@@ -82,8 +82,8 @@ def second_order_sentence(markov_dict):
     
 
 if __name__ == '__main__':
-    # chain = markov_chain('siddhartha.txt')
-    # print(generate_sentences(chain))
-    second_chain = second_order('siddhartha.txt')
-    print(second_order_sentence(second_chain))
+    chain = markov_chain('siddhartha.txt')
+    print(generate_sentences(chain))
+    # second_chain = second_order('siddhartha.txt')
+    # print(second_order_sentence(second_chain))
     
