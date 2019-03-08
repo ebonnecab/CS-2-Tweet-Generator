@@ -1,4 +1,5 @@
 from histogram import histogram
+from dictogram import Dictogram
 import random
 
 
@@ -41,8 +42,30 @@ def generate_sentences(markov_dict):
     return sentence
 
 
+def second_order(file):
+    with open(file) as f: #access file
+        text = f.read() #reads file
+        markov_dict = {} #creates empty dictionary
+    word_array = [word for line in text.split('\n') for word in line.split(' ')] #removes line breaks and whitespace,returns a list of individual words
+
+    for index in range(len(word_array) -2):
+        start_word = word_array[index]
+        next_word = word_array[index + 1]
+        next_next_word = word_array[index + 2]
+        tuple = (start_word, next_word)
+        
+        if tuple not in markov_dict:
+           add_tuple = Dictogram([next_next_word])
+           markov_dict[tuple] = add_tuple
+        else:
+            markov_dict[tuple].add_count(next_next_word)
+    return markov_dict
+
+
+    
 
 if __name__ == '__main__':
-    chain = markov_chain('siddhartha.txt')
-    print(generate_sentences(chain))
+    # chain = markov_chain('siddhartha.txt')
+    # print(generate_sentences(chain))
+    print(second_order('siddhartha.txt'))
     
