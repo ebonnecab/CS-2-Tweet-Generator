@@ -1,4 +1,6 @@
 from histogram import histogram
+import random
+
 
 def markov_chain(file):
     with open(file) as f: #access file
@@ -21,5 +23,26 @@ def markov_chain(file):
     print(index)
     return markov_dict
 
+def start_word(markov_dict, word):
+    rand_word = random.choice(list(markov_dict.keys()))
+    return rand_word
+
+def generate_sentences(markov_dict):
+    length = 10
+    first_word = list(markov_dict.keys())[0]
+    second_word = start_word(markov_dict, first_word)
+    sentence = first_word + ' ' + second_word + ' '
+    prev_word = second_word
+
+    for word in range(0, random.randint(1, length)):
+        next_word = start_word(markov_dict, prev_word)
+        prev_word = next_word
+        sentence += next_word + ' '
+    return sentence
+
+
+
 if __name__ == '__main__':
-    print(markov_chain('siddhartha.txt'))
+    chain = markov_chain('siddhartha.txt')
+    print(generate_sentences(chain))
+    

@@ -5,6 +5,7 @@ import sys
 
 # number = sys.argv[:1]
 number = input('Enter number of words: ') #takes user input
+
 '''  removes line breaks, and appends the words from the file to the list, takes five words from the list object, stores them in an array, 
 and joins the array into a sentence before outputting it'''
 def random_sentence():

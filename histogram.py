@@ -4,8 +4,8 @@ import random
 #dictionary implementation
 #TO DO: account for extraneous punctuation and numbers
 '''
-, 
-words are added to dictionary from list and paired with how many times the word appears
+words are added to dictionary from list and paired with 
+how many times the word appears
 '''
 def histogram(file): 
     with open(file) as f: #access file
