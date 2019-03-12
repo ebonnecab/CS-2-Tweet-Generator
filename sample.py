@@ -3,7 +3,7 @@ import sys
 #TO DO: add comments
 
 def sample():
-    sample_sentence = sys.argv
+    sample_sentence = "one fish two fish red fish blue fish"
     words_list = sample_sentence.split()
     dict = histogram(words_list)
 
