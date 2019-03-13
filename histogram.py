@@ -76,10 +76,10 @@ def histogram_tuples():
         if not found:
             words_list.append((word, 1))
 
-
+    return words_list
 
 if __name__ == '__main__':
-    print(histogram('siddhartha.txt'))
+    # print(histogram('siddhartha.txt'))
     # print(histogram_list())
     # unique_words(histogram('siddhartha.txt'))
     # frequency('he', histogram('siddhartha.txt'))
